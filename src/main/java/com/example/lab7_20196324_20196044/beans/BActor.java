@@ -3,32 +3,39 @@ package com.example.lab7_20196324_20196044.beans;
 import java.sql.Date;
 
 public class BActor {
-    private String first_name;
-    private String last_name;
-    private Date last_update;
+    private int actor_id;
+    private String nombre;
 
-    public String getFirst_name() {
-        return first_name;
+    private int peliculas_realizadas;
+
+    public BActor(int actor_id, String nombre, int peliculas_realizadas) {
+        this.actor_id = actor_id;
+        this.nombre = nombre;
+        this.peliculas_realizadas = peliculas_realizadas;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public int getActor_id() {
+        return actor_id;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public void setActor_id(int actor_id) {
+        this.actor_id = actor_id;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public String getNombre() {
+        return nombre;
     }
 
-    public Date getLast_update() {
-        return last_update;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public void setLast_update(Date last_update) {
-        this.last_update = last_update;
+    public int getPeliculas_realizadas() {
+        return peliculas_realizadas;
+    }
+
+    public void setPeliculas_realizadas(int peliculas_realizadas) {
+        this.peliculas_realizadas = peliculas_realizadas;
     }
 }
 
