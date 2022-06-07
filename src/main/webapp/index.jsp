@@ -1,5 +1,7 @@
+<%@ page import="com.example.lab7_20196324_20196044.beans.BActor" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
+<jsp:useBean type="java.util.ArrayList<com.example.lab7_20196324_20196044.beans.BActor>" scope="request" id="listaActor"/>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" charset="UTF-8"/>
@@ -37,59 +39,44 @@
     </style>
 </head>
 <body>
-<form  name="form" action="ficha.php" method="POST">
-    <?php
-    $fecha = date('d-m-Y');
-?>
-    <br>
-    <br>
-    <table align="center" class="remarca"><tr><td>Reporte de futuros actores POPCORN S.A.C<?php echo $fecha;?></td>
-        <br>
-        <td class="oficio"><?php echo;?></td></tr></table>
-    <br>
-    <table width="1000" border="1" align="center">
-        <th class="blanco" width="32" tbody style="background: rgba(0, 0, 250, 150); border: 1px solid rgba(200, 100, 0, 0.3);">Id</th>
-        <th class="blanco" width="120" tbody style="background: rgba(0, 0, 250, 150); border: 1px solid rgba(200, 100, 0, 0.3);">Nombre</th>
-        <th class="blanco" width="100" tbody style="background: rgba(0, 0, 250, 150); border: 1px solid rgba(200, 100, 0, 0.3);">N° Categorias</th>
-        <th class="blanco" width="100" tbody style="background: rgba(0, 0, 250, 150); border: 1px solid rgba(200, 100, 0, 0.3);">N° Peliculas</th>
+
+<div class='container'>
+
+    <div class="pb-5 pt-4 px-3 titlecolor">
+        <div class="col-lg-6">
+            <h1 class='text-light'>Reporte</h1>
+        </div>
+    </div>
+    <div class="tabla">
+        <table class="table table-dark table-transparent table-hover">
+            <thead>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Categorias</th>
+            <th>Peliculas</th>
+            </thead>
+            <%
+                for (BActor actor : listaActor) {
+            %>
+            <tr>
+                <td><%=actor.getActor_id()%>
+                </td>
+                <td><%=actor.getNombre()%>
+                </td>
+                <td><%=actor.getPeliculas_realizadas()%>
+                </td>
 
 
-        </tr>
-        <tr>
-            <td height="80" align="center">1</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
 
+            </tr>
+            <%
+                }
+            %>
+        </table>
+    </div>
+</div>
 
-        </tr>
-        <tr>
-            <td height="80" align="center">1</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-
-
-        </tr>
-        <tr>
-            <td height="80" align="center">1</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-
-
-        </tr>
-        <tr>
-            <td height="80" align="center">2</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-
-
-        </tr>
-    </table>
-
-
-</form>
+<jsp:include page="/script.jsp"/>
 </body>
+
 </html>
