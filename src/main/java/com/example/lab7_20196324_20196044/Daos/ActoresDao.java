@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class ActoresDao {
     private static String user = "root";
     private static String pass = "root";
-    private static String url = "jdbc:mysql://localhost:3306/lab6sw1?serverTimezone=America/Lima";
+    private static String url = "jdbc:mysql://localhost:3306/sakila?serverTimezone=America/Lima";
 
 
 public ArrayList<BActor> obtenerActor(){
@@ -36,6 +36,7 @@ public ArrayList<BActor> obtenerActor(){
             apellido=apellido.substring(0, 1).toUpperCase() + apellido.substring(1);
             String nombre_completo= nombre + " "+apellido;
             int peliculas = rs.getInt(4);
+            System.out.println(nombre_completo);
             listaActor.add(new BActor(id,nombre_completo,peliculas));
         }
 
